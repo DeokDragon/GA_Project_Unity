@@ -15,7 +15,6 @@ public class SimplePriorityQueue<T>
     {
         
         heap.Add((item, prority));
-        
         HeapifyUp(heap.Count - 1);
     }
 
@@ -37,7 +36,7 @@ public class SimplePriorityQueue<T>
             int parent = (i - 1) / 2;
             if (heap[i].priority >= heap[parent].priority)
                 break;
-            (heap[i], heap[parent]) = (heap[parent], heap[1]);
+            (heap[i], heap[parent]) = (heap[parent], heap[i]);
             i = parent;
         }
     }
