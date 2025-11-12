@@ -31,7 +31,7 @@ public class BruteForceBestCard : MonoBehaviour
                 {
                     for(int r = 0; r <= cardcount[3]; r++)
                     {
-                        icost = q * cost[0] + w * cost[1] + e * cost[2] + r * cost[3];
+                        icost = q * cost [0] + w * cost[1] + e * cost[2] + r * cost[3];
                         if ( icost <= maxcost )
                         {
                             idamage = q * damage[0] + w * damage[1] + e * damage[2] + r * damage[3];
