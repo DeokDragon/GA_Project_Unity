@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManagers : MonoBehaviour
 {
     public MazeGenerator_Probability generator;
     public GameObject pathCubePrefab; 
