@@ -2,36 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DijkstraManager : MonoBehaviour
+public class ASterManager : MonoBehaviour
 {
     public MapGenerator generator;
     public MapVisualizer visualizer;
-    public Pathfinder Pathfinder;
+    public finderASter finderASter;
 
     public GameObject pathMarker;
     public GameObject playerPrefab;
+
     private int[,] map;
     private Vector2Int start;
     private Vector2Int goal;
 
     void Start()
     {
-        // 맵 생성 및 시각화
         map = generator.GenerateValidMap();
         visualizer.Render(map);
 
         start = new Vector2Int(1, 1);
         goal = new Vector2Int(map.GetLength(1) - 2, map.GetLength(0) - 2);
 
-        // 플레이어 생성
         if (playerPrefab != null)
             Instantiate(playerPrefab, new Vector3(start.x, 0.5f, start.y), Quaternion.identity);
     }
 
-    // 버튼 클릭 시 호출
-    public void ShowShortestPath()
+    // 버튼에서 호출
+    public void ShowAStarPath()
     {
-        List<Vector2Int> path = Pathfinder.Dijkstra(map, start, goal);
+        List<Vector2Int> path = finderASter.AStar(map, start, goal);
 
         if (path == null)
         {
@@ -40,8 +39,6 @@ public class DijkstraManager : MonoBehaviour
         }
 
         foreach (var p in path)
-        {
             Instantiate(pathMarker, new Vector3(p.x, 0.5f, p.y), Quaternion.identity);
-        }
     }
 }

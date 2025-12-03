@@ -35,9 +35,9 @@ public class MapGenerator : MonoBehaviour
                 else
                 {
                     int r = Random.Range(0, 100);
-                    if (r < 35) m[y, x] = 0;       // 35%
-                    else if (r < 65) m[y, x] = 1;  // 30%
-                    else if (r < 85) m[y, x] = 2;  // 20%
+                    if (r < 15) m[y, x] = 0;       // 35%
+                    else if (r < 35) m[y, x] = 1;  // 30%
+                    else if (r < 80) m[y, x] = 2;  // 20%
                     else m[y, x] = 3;             // 15%
                 }
             }
